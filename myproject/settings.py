@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'myapp',  # 新しいアプリケーションを追加する docker-compose run web django-admin startapp myappで指定した名前
+#    'myapp',  # 新しいアプリケーションを追加する docker-compose run web django-admin startapp myappで指定した名前
+    'defaultmyapp',  # 新しいアプリケーションを追加する docker-compose run web django-admin startapp myappで指定した名前
 ]
 
 MIDDLEWARE = [
