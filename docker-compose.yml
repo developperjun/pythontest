@@ -1,0 +1,24 @@
+services:
+  web:
+    # ディレクトリ（.）にあるDockerfileを使用してコンテナイメージをビルドする
+    build: .
+    # コンテナが起動されたときに実行されるデフォルトのコマンド
+    command: python manage.py runserver 0.0.0.0:8000
+    # ボリュームの設定を行うために記述する
+    volumes:
+      - .:/app
+    # host_port:container_portという表現で、これにより、コンテナ内のアプリケーションが外部からアクセス可能となる
+    ports:
+      - "8000:8000"
+    # 依存しているサービスが起動している場合にのみ起動（下記はDBが起動してwebが起動という意味）
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+    ports:
+      - "5432:5432"
