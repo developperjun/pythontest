@@ -1,5 +1,5 @@
 # ベースイメージとして公式のPythonイメージを使用
-FROM python:3.8-slim
+FROM python:3
 
 # 作業ディレクトリを設定
 RUN mkdir /app
